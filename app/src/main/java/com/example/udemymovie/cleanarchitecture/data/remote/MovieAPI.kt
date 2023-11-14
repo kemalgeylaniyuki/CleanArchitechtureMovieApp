@@ -22,9 +22,15 @@ interface MovieAPI {
     ) : RecentDto
 
     @GET("3/genre/movie/list")
-    suspend fun getPopularMovies(
+    suspend fun getGenres(
         @Query("api_key") api_key : String = API_KEY
     ) : GenreDto
+
+    @GET("3/search/movie")
+    suspend fun getMovies(
+        @Query("query") query : String,
+        @Query("api_key") api_key : String = API_KEY
+    ) : PopularDto
 
 
 }

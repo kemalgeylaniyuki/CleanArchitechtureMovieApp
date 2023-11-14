@@ -1,5 +1,7 @@
 package com.example.udemymovie.cleanarchitecture.data.remote.dto
 
+import com.example.udemymovie.cleanarchitecture.domain.model.MovieDetail
+
 data class Result(
     val adult: Boolean,
     val backdrop_path: String,
@@ -16,3 +18,8 @@ data class Result(
     val vote_average: Double,
     val vote_count: Int
 )
+
+fun Result.toMovieDetail() : MovieDetail{
+    return MovieDetail(genre_ids, id, original_title, overview, popularity, poster_path, release_date, title, video, vote_average)
+}
+

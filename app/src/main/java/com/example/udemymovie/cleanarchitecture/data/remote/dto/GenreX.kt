@@ -1,5 +1,6 @@
 package com.example.udemymovie.cleanarchitecture.data.remote.dto
 
-data class GenreDto(
-    val genres: List<Genre>
+data class GenreX(
+    val id: Int,
+    val name: String
 )

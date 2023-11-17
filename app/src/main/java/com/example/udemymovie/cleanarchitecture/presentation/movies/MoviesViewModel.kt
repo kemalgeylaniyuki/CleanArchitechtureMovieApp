@@ -4,13 +4,14 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.udemymovie.cleanarchitecture.domain.use_case.get_movies.GetMovieUseCase
 import com.example.udemymovie.cleanarchitecture.util.Resource
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import javax.inject.Inject
-
+@HiltViewModel
 class MoviesViewModel @Inject constructor(
     private val getMovieUseCase: GetMovieUseCase) : ViewModel() {
 
@@ -26,7 +27,7 @@ class MoviesViewModel @Inject constructor(
     private fun getMovies(query : String, page : String){
         job?.cancel()
 
-        getMovieUseCase.executeGetMovies(query = query, page = page).onEach {
+        job = getMovieUseCase.executeGetMovies(query = query, page = page).onEach {
             when(it){
 
                 is Resource.Success -> {

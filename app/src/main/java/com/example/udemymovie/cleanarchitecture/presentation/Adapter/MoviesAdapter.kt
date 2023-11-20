@@ -5,22 +5,23 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.udemymovie.cleanarchitecture.data.remote.dto.Result
+import com.example.udemymovie.cleanarchitecture.domain.model.Movie
 import com.example.udemymovie.databinding.MoviesItemBinding
 
 class MoviesAdapter : RecyclerView.Adapter<MoviesAdapter.MoviesHolder>() {
 
-    var movieList : List<Result>? = emptyList()
+    var movieList : List<Movie> = emptyList()
 
-    fun setlist(movieList : List<Result>){
+    fun setlist(movieList : List<Movie>){
         this.movieList = movieList
         notifyDataSetChanged()
     }
 
     class MoviesHolder(val binding : MoviesItemBinding) : RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(data : Result){
+        fun bind(data : Movie){
 
-            binding.txtTitle.text = data.original_title
+            binding.txtTitle.text = data.title
             binding.txtReleaseDate.text = data.release_date
             binding.txtVoteAverage.text = data.vote_average.toString() + "/10"
 
@@ -37,14 +38,8 @@ class MoviesAdapter : RecyclerView.Adapter<MoviesAdapter.MoviesHolder>() {
         return MoviesHolder(view)
     }
 
-    override fun getItemCount(): Int {
-        if (movieList == null){
-            return 0
-        }
-        else{
-            return movieList!!.size
-        }
-    }
+    override fun getItemCount(): Int = movieList.size
+
 
     override fun onBindViewHolder(holder: MoviesHolder, position: Int) {
         holder.bind(movieList!!.get(position))

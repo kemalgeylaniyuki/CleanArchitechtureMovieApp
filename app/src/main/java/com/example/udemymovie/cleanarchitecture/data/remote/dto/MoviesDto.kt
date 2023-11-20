@@ -10,5 +10,5 @@ data class MoviesDto(
 )
 
 fun MoviesDto.toMovieList() : List<Movie> {
-    return results.map { result -> Movie(result.poster_path, result.title, result.release_date, result.id) }
+    return results.map { result -> Movie(result.poster_path, result.title, result.release_date, result.id, result.vote_average) }
 }

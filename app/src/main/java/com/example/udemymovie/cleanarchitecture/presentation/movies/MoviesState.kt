@@ -1,5 +1,5 @@
 package com.example.udemymovie.cleanarchitecture.presentation.movies
-
+import com.example.udemymovie.cleanarchitecture.data.remote.dto.Result
 import com.example.udemymovie.cleanarchitecture.domain.model.Movie
 
 data class MoviesState(

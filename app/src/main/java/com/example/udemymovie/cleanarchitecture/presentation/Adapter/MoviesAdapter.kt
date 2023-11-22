@@ -1,14 +1,16 @@
 package com.example.udemymovie.cleanarchitecture.presentation.Adapter
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.udemymovie.cleanarchitecture.data.remote.dto.Result
 import com.example.udemymovie.cleanarchitecture.domain.model.Movie
+import com.example.udemymovie.cleanarchitecture.presentation.movies.views.MoviesFragmentDirections
 import com.example.udemymovie.databinding.MoviesItemBinding
 
-class MoviesAdapter : RecyclerView.Adapter<MoviesAdapter.MoviesHolder>() {
+class MoviesAdapter() : RecyclerView.Adapter<MoviesAdapter.MoviesHolder>() {
 
     var movieList : List<Movie> = emptyList()
 
@@ -42,7 +44,14 @@ class MoviesAdapter : RecyclerView.Adapter<MoviesAdapter.MoviesHolder>() {
 
 
     override fun onBindViewHolder(holder: MoviesHolder, position: Int) {
-        holder.bind(movieList!!.get(position))
+        holder.bind(movieList.get(position))
+
+        holder.itemView.setOnClickListener {
+            val action = MoviesFragmentDirections.actionMoviesFragmentToDetailFragment(movieList.get(position).id)
+            Navigation.findNavController(it).navigate(action)
+        }
+
     }
+
 
 }

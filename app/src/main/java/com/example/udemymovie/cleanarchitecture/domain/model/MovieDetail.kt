@@ -12,7 +12,9 @@ data class MovieDetail(
     val release_date: String,
     val status: String,
     val tagline: String,
-    val vote_average: Double
+    val vote_average: Double,
+    val poster_path: String,
+    val id: Int
 
 )
 

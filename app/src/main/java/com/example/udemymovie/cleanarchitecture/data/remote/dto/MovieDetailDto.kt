@@ -31,5 +31,5 @@ data class MovieDetailDto(
 )
 
 fun MovieDetailDto.toMovieDetail() : MovieDetail {
-    return MovieDetail(genres, original_language, original_title, overview, popularity, release_date, status, tagline, vote_average)
+    return MovieDetail(genres, original_language, original_title, overview, popularity, release_date, status, tagline, vote_average, poster_path, id)
 }

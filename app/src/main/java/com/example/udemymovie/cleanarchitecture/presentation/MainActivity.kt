@@ -1,4 +1,4 @@
-package com.example.udemymovie.cleanarchitecture.presentation.ui
+package com.example.udemymovie.cleanarchitecture.presentation
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

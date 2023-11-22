@@ -8,6 +8,5 @@ object Constants {
 
     const val API_KEY = "5047ef5641b3b674225c558da29d10bd"
     const val BASE_URL = "https://api.themoviedb.org/"
-    const val IMDB_ID = "imdb_id"
 
 }

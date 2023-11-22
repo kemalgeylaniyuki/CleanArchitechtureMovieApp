@@ -1,4 +1,4 @@
-package com.example.udemymovie.cleanarchitecture.presentation.ui
+package com.example.udemymovie.cleanarchitecture.presentation.movies.views
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,6 +9,8 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.NavController
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.udemymovie.cleanarchitecture.presentation.Adapter.MoviesAdapter
 import com.example.udemymovie.cleanarchitecture.presentation.movies.MoviesEvent
@@ -20,7 +22,7 @@ import kotlinx.coroutines.launch
 
 
 @AndroidEntryPoint
-class MoviesFragment : Fragment() {
+class MoviesFragment : Fragment(){
 
     private var _binding: FragmentMoviesBinding? = null
     private val binding get() = _binding!!
@@ -45,6 +47,8 @@ class MoviesFragment : Fragment() {
         binding.recyclerView.layoutManager = LinearLayoutManager(context)
         moviesAdater = MoviesAdapter()
         binding.recyclerView.adapter = moviesAdater
+
+
 
         binding.searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener,
             android.widget.SearchView.OnQueryTextListener {

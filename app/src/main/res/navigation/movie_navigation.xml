@@ -6,7 +6,7 @@
 
     <fragment
         android:id="@+id/moviesFragment"
-        android:name="com.example.udemymovie.cleanarchitecture.presentation.ui.MoviesFragment"
+        android:name="com.example.udemymovie.cleanarchitecture.presentation.movies.views.MoviesFragment"
         android:label="MoviesFragment" >
         <action
             android:id="@+id/action_moviesFragment_to_detailFragment"
@@ -14,6 +14,12 @@
     </fragment>
     <fragment
         android:id="@+id/detailFragment"
-        android:name="com.example.udemymovie.cleanarchitecture.presentation.ui.DetailFragment"
-        android:label="DetailFragment" />
+        android:name="com.example.udemymovie.cleanarchitecture.presentation.movie_detail.views.DetailFragment"
+        android:label="DetailFragment" >
+        <argument
+            android:name="id"
+            app:argType="integer"
+
+            />
+    </fragment>
 </navigation>
